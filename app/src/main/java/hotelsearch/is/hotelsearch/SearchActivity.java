@@ -115,10 +115,9 @@ public class SearchActivity extends AppCompatActivity {
                 String city = cursor.getString(DBAdapter.COL_CITY);
                 String wwww = cursor.getString(DBAdapter.COL_WEBSITE);
                 String latlng = cursor.getString(DBAdapter.COL_LATLNG);
-                message += "id=" + id
-                        +", name=" + name
-                        +", Address=" + address
-                        +", latlng=" + latlng
+                message += "Hotel =" + name
+                        +",\nAddress =" + address
+                        +", \nGPS coords=" + latlng
                         +"\n";
             }while(cursor.moveToNext());
         }

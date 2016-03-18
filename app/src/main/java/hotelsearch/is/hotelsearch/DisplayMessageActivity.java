@@ -35,7 +35,8 @@ public class DisplayMessageActivity extends AppCompatActivity {
         String message = intent.getStringExtra(SearchActivity.EXTRA_MESSAGE);
         TextView textView = new TextView(this);
         textView.setTextSize(40);
-        textView.setText(message);
+        textView.setText("Here we will see a list of hotels");
+        //textView.setText(message);
 
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.content);
         layout.addView(textView);
