@@ -2,6 +2,7 @@ package hotelsearch.is.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -50,7 +51,7 @@ public class DBAdapter {
     public static final String DATABASE_NAME = "MyDb";
     public static final String DATABASE_TABLE = "mainTable";
 
-    // TODO: IF there are changes made to the DB structure inrement version by 1.
+    // TODO: IF there are changes made to the DB structure increment version by 1.
 
     public static final int DATABASE_VERSION = 6;
 
@@ -82,7 +83,6 @@ public class DBAdapter {
     // Open the database connection.
     public DBAdapter open() {
         db = myDBHelper.getWritableDatabase();
-        loadHotelFile();
         return this;
     }
 
@@ -197,7 +197,7 @@ public class DBAdapter {
                 if (strings.length < 6) continue;
                 boolean update = updateRow(i,strings[0],strings[0],strings[0],strings[0],strings[0],strings[0]);
                 i++;
-                Log.d("Updted row number: ",""+i);
+                Log.d("Updated row number: ",""+i);
 
             }
         } finally {
@@ -216,23 +216,70 @@ public class DBAdapter {
 
 
 
-    /////////////////////////////////////////////////////////////////////
-    //	Private Helper Classes:
-    /////////////////////////////////////////////////////////////////////
+    // inner class, handles creation of DB. importing data from the text file
+    // destroying, and updating Db.
+    private static class DatabaseHelper extends SQLiteOpenHelper {
+        private final Context mHelperContext;
+        private SQLiteDatabase helpDb;
 
-    /**
-     * Private class which handles database creation and upgrading.
-     * Used to handle low-level database access.
-     */
-    private static class DatabaseHelper extends SQLiteOpenHelper
-    {
         DatabaseHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
+            mHelperContext = context;
+        }
+
+        private void loadHotelDatabase() {
+            new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        loadHotels();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }).start();
+        }
+        private void loadHotels() throws IOException {
+            InputStream inputStream = mHelperContext.getResources().openRawResource(R.raw.hotels);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+
+            try {
+                String line;
+                Log.e("fór loadHotels fallið", " ");
+                while ((line = reader.readLine()) != null) {
+                    // Strings in text file splitted with " | " "\\" are escape characters
+                    // the first one escpaes the "|" and the second one escapes the escape char.. :)
+
+                    String[] strings = TextUtils.split(line, "\\|");
+                    // if 6 strings weren't extracted from the line we skip that line..
+                    Log.e("lengdin er: ", ""+strings.length);
+                    if (strings.length < 6) continue;
+                    Long id = addToDb(strings[0], strings[0], strings[0], strings[0], strings[0], strings[0]);
+                    Log.e("Added stuff to db","strings like");
+                    Log.e(strings[0], strings[1]);
+                    Log.e("lengdin er: ", ""+strings.length);
+                }
+            } finally {
+                reader.close();
+            }
+        }
+        public long addToDb(String name, String address, String zip, String city, String www, String gps) {
+            ContentValues initialValues = new ContentValues();
+            initialValues.put(KEY_NAME, name);
+            initialValues.put(KEY_ADDRESS, address);
+            initialValues.put(KEY_ZIP,zip);
+            initialValues.put(KEY_CITY,city);
+            initialValues.put(KEY_WEBSITE, www);
+            initialValues.put(KEY_LATLNG, gps);
+            return helpDb.insert(DATABASE_TABLE, null, initialValues);
         }
 
         @Override
         public void onCreate(SQLiteDatabase _db) {
+            helpDb = _db;
             _db.execSQL(DATABASE_CREATE_SQL);
+            Log.e("ERROR:","ROBOTS TOOK OVER MY LIFE!! And created a new database");
+            loadHotelDatabase();
+
         }
 
         @Override
