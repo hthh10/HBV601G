@@ -164,47 +164,7 @@ public class DBAdapter {
         // Insert it into the database.
         return db.update(DATABASE_TABLE, newValues, where, null) != 0;
     }
-    private void loadHotelFile() {
-        new Thread(new Runnable() {
-            public void run() {
-                boolean test = false;
-                while(!test){
-                    try {
 
-                        test = loadWords();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-
-                }
-
-            }
-        }).start();
-    }
-    private boolean loadWords() throws IOException {
-        // read hotels from TXT database.
-        InputStream inputStream = context.getResources().openRawResource(R.raw.hotels);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        long i = 0;
-        try {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                // Strings in text file splitted with " | " "\\" are escape characters
-                // the first one escpaes the "|" and the second one escapes the escape char.. :)
-
-                String[] strings = TextUtils.split(line, "\\|");
-                // if 6 strings weren't extracted from the line we skip that line..
-                if (strings.length < 6) continue;
-                boolean update = updateRow(i,strings[0],strings[0],strings[0],strings[0],strings[0],strings[0]);
-                i++;
-                Log.d("Updated row number: ",""+i);
-
-            }
-        } finally {
-            reader.close();
-        }
-        return true;
-    }
 
     public Cursor searchDb(String string){
         // to be implemented...
@@ -212,7 +172,6 @@ public class DBAdapter {
         // i.e a pointer to the database entry
         return null;
     }
-
 
 
 
