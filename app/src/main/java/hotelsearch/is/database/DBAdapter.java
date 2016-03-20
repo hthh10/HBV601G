@@ -212,7 +212,7 @@ public class DBAdapter {
                     // if 6 strings weren't extracted from the line we skip that line..
                     Log.e("lengdin er: ", ""+strings.length);
                     if (strings.length < 6) continue;
-                    Long id = addToDb(strings[0], strings[0], strings[0], strings[0], strings[0], strings[0]);
+                    Long id = addToDb(strings[0], strings[1], strings[2], strings[3], strings[4], strings[5]);
                     Log.e("Added stuff to db","strings like");
                     Log.e(strings[0], strings[1]);
                     Log.e("lengdin er: ", ""+strings.length);

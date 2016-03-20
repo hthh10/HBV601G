@@ -1,1 +1,2 @@
 Hilton Reykjavík Nordica|Suðurlandsbraut 2|108|Reykjavík|http://www.hiltonreykjavik.com/|64.1364755,-21.874752100000023
+Testhótel|Aðalgata2|101|Reykjavík|www.hotel.is|64.1364755,-22.874752100000023
