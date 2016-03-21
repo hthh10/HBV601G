@@ -4,4 +4,6 @@
     <string name="edit_message">Search for a Hotel</string>
     <string name="button_send">Search</string>
     <string name="title_activity_display_message">My Message</string>
+    <string name="listViewHotel">Hotel</string>
+    <string name="listViewAddress">Address</string>
 </resources>

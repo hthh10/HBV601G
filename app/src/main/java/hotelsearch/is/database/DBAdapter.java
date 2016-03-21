@@ -203,7 +203,6 @@ public class DBAdapter {
 
             try {
                 String line;
-                Log.e("fór loadHotels fallið", " ");
                 while ((line = reader.readLine()) != null) {
                     // Strings in text file splitted with " | " "\\" are escape characters
                     // the first one escpaes the "|" and the second one escapes the escape char.. :)
