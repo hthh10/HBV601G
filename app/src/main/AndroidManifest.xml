@@ -27,6 +27,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="hotelsearch.is.hotelsearch.SearchActivity" />
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDxXLVBKr2dFDKYiO2WSlJbhv6d8AWJ3QQ"/>
     </application>
 
 </manifest>

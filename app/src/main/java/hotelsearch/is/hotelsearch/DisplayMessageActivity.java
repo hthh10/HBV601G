@@ -5,14 +5,18 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
+
 import hotelsearch.is.database.DBAdapter;
 
 public class DisplayMessageActivity extends AppCompatActivity {
+    public final static String HOTEL_ID = "hotelsearch.is.hotelsearch.HOTELID";
 
     DBAdapter myDb;
-
 
 
     @Override
@@ -29,7 +33,11 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         openDb();
         populateHotelListView();
+        hotelListCallBack();
     }
+
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -61,6 +69,35 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.hotelListView);
         listView.setAdapter(myCursorAdapter);
+
+    }
+    private void hotelListCallBack() {
+        ListView listView = (ListView) findViewById(R.id.hotelListView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View viewClicked,
+                                    int position, long idInDB) {
+                Cursor cursor = myDb.getRow(idInDB);
+                if(cursor.moveToFirst()) {
+                    long idDb = cursor.getLong(DBAdapter.COL_ROWID);
+                    String name = cursor.getString(DBAdapter.COL_NAME);
+                    String address = cursor.getString(DBAdapter.COL_ADDRESS);
+                    String zip = cursor.getString(DBAdapter.COL_CITY);
+                    String city = cursor.getString(DBAdapter.COL_CITY);
+                    String www = cursor.getString(DBAdapter.COL_WEBSITE);
+                    String LatLng = cursor.getString(DBAdapter.COL_LATLNG);
+
+                    String message = "ID: " + idDb + ", " + "\n" +
+                            "Name: " + name;
+
+                    Toast.makeText(DisplayMessageActivity.this, message, Toast.LENGTH_SHORT).show();
+
+                }
+                cursor.close();
+
+            }
+        });
+
 
     }
 

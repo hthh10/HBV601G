@@ -28,14 +28,6 @@ public class SearchActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         openDb();
     }
@@ -76,6 +68,7 @@ public class SearchActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     /** Called when the user clicks the Search button */
+
     public void searchString(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText = (EditText) findViewById(R.id.edit_message);
@@ -83,6 +76,8 @@ public class SearchActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE,s);
         startActivity(intent);
     }
+
+    // No button references this right now
     public void onClickAdd(View view){
 
         long newId = myDb.insertRow("Testhótel", "Aðalgata 2", "101","Reykjavík",
@@ -113,7 +108,7 @@ public class SearchActivity extends AppCompatActivity {
                 String address = cursor.getString(DBAdapter.COL_ADDRESS);
                 String zip = cursor.getString(DBAdapter.COL_ZIP);
                 String city = cursor.getString(DBAdapter.COL_CITY);
-                String wwww = cursor.getString(DBAdapter.COL_WEBSITE);
+                String www = cursor.getString(DBAdapter.COL_WEBSITE);
                 String latlng = cursor.getString(DBAdapter.COL_LATLNG);
                 message += "Hotel =" + name
                         +",\nAddress =" + address
