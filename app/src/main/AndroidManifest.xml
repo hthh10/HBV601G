@@ -48,9 +48,6 @@
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
-            android:name=".MapsActivity"
-            android:label="Maps" />
-        <activity
             android:name=".DisplayMessageActivity"
             android:label="@string/title_activity_display_message"
             android:parentActivityName=".SearchActivity"

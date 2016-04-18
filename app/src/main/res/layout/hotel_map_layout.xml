@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:text="@string/listViewHotel"
+        android:id="@+id/hotelmapname" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/listViewAddress"
+        android:id="@+id/hotelmapaddress"
+        android:layout_weight="0.06" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="14dp"
+            android:text="@string/listViewAddress"
+            android:id="@+id/hotelmapzip"
+            android:layout_weight="0.6" />
+        <TextView
+            android:paddingLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/listViewAddress"
+            android:id="@+id/hotelmapcity"
+            android:layout_weight="0.04" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/listViewAddress"
+        android:id="@+id/hotelmapwww"
+        android:layout_weight="0.06" />
+</LinearLayout>

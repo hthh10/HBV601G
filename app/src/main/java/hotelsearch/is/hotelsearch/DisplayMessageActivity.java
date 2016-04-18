@@ -15,6 +15,7 @@ import hotelsearch.is.database.DBAdapter;
 
 public class DisplayMessageActivity extends AppCompatActivity {
     public final static String HOTEL_INFO = "hotelsearch.is.hotelsearch.HOTEL";
+    public final static String HOTEL_ID = "hotelsearch.is.hotelsearch.HOTEL_ID";
 
     DBAdapter myDb;
 
@@ -90,6 +91,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(getApplicationContext(), ShowMap.class);
                     intent.putExtra(HOTEL_INFO,hotelInfo);
+                    intent.putExtra(HOTEL_ID,idInDB);
                     startActivity(intent);
 
                 }
