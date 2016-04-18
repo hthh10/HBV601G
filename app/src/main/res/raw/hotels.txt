@@ -1,2 +1,17 @@
-Hilton Reykjavík Nordica|Suðurlandsbraut 2|108|Reykjavík|http://www.hiltonreykjavik.com/|64.1364755,-21.874752100000023
 Testhótel|Aðalgata2|101|Reykjavík|www.hotel.is|64.1364755,-22.874752100000023
+Hilton Reykjavík Nordica|Suðurlandsbraut 2|108|Reykjavík|http://www.hiltonreykjavik.com/|64.1364755,-21.874752100000023
+Hótel Frón|Laugarvegur 22a|101|Reykjavík|http://www.hotelfron.is/|64.1455603,-21.92910219999999
+Hótel Holt|Bergstaðastræti 37|101|Reykjavík|http://www.holt.is/|64.143535,-21.93456279999998
+Skuggi Hótel|Hverfisgata 103|101|Reykjavík|http://www.keahotels.is/is/hotelin/skuggi-hotel/|64.1441777,-21.917503500000066
+Hótel Klettur|Mjölnisholt 12-14|105|Reykjavík|http://www.hotelklettur.is/|64.14305689999999,-21.91014199999995
+Hótel Cabin|Borgartún 32|105|Reykjavík|http://www.hotelcabin.is/|64.1459521,-21.899257300000045
+Hótel Borg|Pósthússtræti 11|101|Reykjavík|http://www.hotelborg.is/|64.14658810000002,-21.938995500000033
+CenterHotel Arnarhvoll|Ingólfsstræti 1|101|Reykjavík|http://www.centerhotels.is/hotelin/arnarhvoll/|64.14658810000002,-21.938995500000033
+CenterHotel Klöpp|Klapparstíg 26|101|Reykjavík|http://www.centerhotels.is/hotelin/hotel-klopp/|64.1459048,-21.929114600000048
+CenterHotel Plaza|Aðalstræti 4|101|Reykjavík|http://www.centerhotels.is/hotelin/plaza/|64.1483515,-21.941580899999963
+CenterHotel Skjaldbreið|Laugarvegur 16|101|Reykjavík|http://www.centerhotels.is/hotelin/skjaldbreid/|64.1459623,-21.93057299999998
+CenterHotel Þingholt|Þingholtsstræti 3-5|101|Reykjavík|http://www.centerhotels.is/hotelin/thingholt/|64.14663949999999,-21.934468599999946
+Reykjavík Hostel Village|Flókagata 1|105|Reykjavík|http://www.hostelvillage.is/|64.1393429,-21.91833799999995
+Apótek Hótel|Austurstræti 16|101|Reykjavík|http://www.keahotels.is/is/hotelin/apotek-hotel/|64.1477213,-21.93938479999997
+Storm Hótel|Þórunnartún 4|105|Reykjavík|http://www.keahotels.is/is/hotelin/storm-hotel/|64.1452454,-21.910463800000002
+Reykjavík Lights Hótel|Suðurlandsbraut 16|108|Reykjavík|http://www.keahotels.is/is/hotelin/reykjavik-lights/|64.1388015,-21.879109800000037

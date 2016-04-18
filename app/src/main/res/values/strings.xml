@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">Hotel Search</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Map</string>
     <string name="edit_message">Search for a Hotel</string>
     <string name="button_send">Search</string>
-    <string name="title_activity_display_message">My Message</string>
+    <string name="title_activity_display_message">Results</string>
     <string name="listViewHotel">Hotel</string>
     <string name="listViewAddress">Address</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_show_map">ShowMap</string>
+    <string name="HotelInfo">Name\nAddress\nZip\nCity\n</string>
+    <string name="website">Website</string>
+    <string name="action_home">Search</string>
 </resources>

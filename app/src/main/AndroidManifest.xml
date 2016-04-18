@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hotelsearch.is.hotelsearch">
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="17"/>
+    <permission
+        android:name="hotelsearch.is.hotelsearch.permissions.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.zako.android.locationapi.maps.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- EXTERNAL_STORAGE permissions are optional for Android 6.0 onwards. -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="22" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="22" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +43,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".BigMapActivity"
+            android:label="BigMap"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="Maps" />
+        <activity
             android:name=".DisplayMessageActivity"
             android:label="@string/title_activity_display_message"
             android:parentActivityName=".SearchActivity"
@@ -27,9 +59,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="hotelsearch.is.hotelsearch.SearchActivity" />
         </activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDxXLVBKr2dFDKYiO2WSlJbhv6d8AWJ3QQ"/>
+            android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".ShowMap"
+            android:label="@string/title_activity_show_map"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

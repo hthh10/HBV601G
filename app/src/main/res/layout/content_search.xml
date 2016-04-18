@@ -41,27 +41,5 @@
 
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Show DB content"
-        android:id="@+id/showButton"
-        android:layout_below="@+id/buttonBar"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClickView" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/showButton"
-        android:layout_alignEnd="@+id/showButton"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/buttonBar" />
-
 
 </RelativeLayout>

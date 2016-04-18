@@ -53,7 +53,7 @@ public class DBAdapter {
 
     // TODO: IF there are changes made to the DB structure increment version by 1.
 
-    public static final int DATABASE_VERSION = 6;
+    public static final int DATABASE_VERSION = 7;
 
     // Creates the database with our columns we defined earlier
 

@@ -3,16 +3,14 @@ package hotelsearch.is.hotelsearch;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import hotelsearch.is.database.DBAdapter;
 
@@ -62,6 +60,13 @@ public class SearchActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, BigMapActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        if( id == R.id.action_home) {
+            //Intent intent = new Intent(this, SearchActivity.class);
+            //startActivity(intent);
             return true;
         }
 
@@ -77,20 +82,6 @@ public class SearchActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // No button references this right now
-    public void onClickAdd(View view){
-
-        long newId = myDb.insertRow("Testhótel", "Aðalgata 2", "101","Reykjavík",
-                "Hotel.is","64.1364755,-21.874752100000023");
-
-        Cursor cursor = myDb.getRow(newId);
-
-    }
-
-    public void displayText(String message){
-        TextView textView = (TextView) findViewById(R.id.editText);
-        textView.setText(message);
-    }
 
     public void onClickView(View view){
         Cursor cursor = myDb.getAllRows();
@@ -119,6 +110,5 @@ public class SearchActivity extends AppCompatActivity {
 
         cursor.close();
 
-        displayText(message);
     }
 }

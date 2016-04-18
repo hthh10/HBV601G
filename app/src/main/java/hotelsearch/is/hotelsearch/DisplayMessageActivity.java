@@ -14,7 +14,7 @@ import android.widget.Toast;
 import hotelsearch.is.database.DBAdapter;
 
 public class DisplayMessageActivity extends AppCompatActivity {
-    public final static String HOTEL_ID = "hotelsearch.is.hotelsearch.HOTELID";
+    public final static String HOTEL_INFO = "hotelsearch.is.hotelsearch.HOTEL";
 
     DBAdapter myDb;
 
@@ -79,18 +79,18 @@ public class DisplayMessageActivity extends AppCompatActivity {
                                     int position, long idInDB) {
                 Cursor cursor = myDb.getRow(idInDB);
                 if(cursor.moveToFirst()) {
+                    String[] hotelInfo = new String[6];
                     long idDb = cursor.getLong(DBAdapter.COL_ROWID);
-                    String name = cursor.getString(DBAdapter.COL_NAME);
-                    String address = cursor.getString(DBAdapter.COL_ADDRESS);
-                    String zip = cursor.getString(DBAdapter.COL_CITY);
-                    String city = cursor.getString(DBAdapter.COL_CITY);
-                    String www = cursor.getString(DBAdapter.COL_WEBSITE);
-                    String LatLng = cursor.getString(DBAdapter.COL_LATLNG);
+                    hotelInfo[0] = cursor.getString(DBAdapter.COL_NAME);
+                    hotelInfo[1] = cursor.getString(DBAdapter.COL_ADDRESS);
+                    hotelInfo[2] = cursor.getString(DBAdapter.COL_CITY);
+                    hotelInfo[3] = cursor.getString(DBAdapter.COL_ZIP);
+                    hotelInfo[4] = cursor.getString(DBAdapter.COL_WEBSITE);
+                    hotelInfo[5] = cursor.getString(DBAdapter.COL_LATLNG);
 
-                    String message = "ID: " + idDb + ", " + "\n" +
-                            "Name: " + name;
-
-                    Toast.makeText(DisplayMessageActivity.this, message, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), ShowMap.class);
+                    intent.putExtra(HOTEL_INFO,hotelInfo);
+                    startActivity(intent);
 
                 }
                 cursor.close();
