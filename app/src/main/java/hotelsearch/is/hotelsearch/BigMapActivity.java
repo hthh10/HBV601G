@@ -84,22 +84,10 @@ implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        //googleMap.addMarker(new MarkerOptions()
-        //        .position(new LatLng(10, 10))
-        //        .title("Hello world"));
         Cursor cursor = myDb.getAllRows();
         generateMarkers(googleMap,cursor);
-
-        //LatLng location = buildInfo(info);
-        //CameraUpdate update = CameraUpdateFactory.newLatLngZoom(location,17);
-        //googleMap.addMarker(new MarkerOptions().position(location).title(HotelName));
-        //googleMap.animateCamera(update);
-        //
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(64.1393429, -21.91833799999995), 12));
-        googleMap.setTrafficEnabled(true);
-        googleMap.setIndoorEnabled(true);
-        googleMap.setBuildingsEnabled(true);
-        googleMap.getUiSettings().setZoomControlsEnabled(true);
+        googleMap.getUiSettings().setMapToolbarEnabled(true);
 
     }
 

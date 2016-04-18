@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -137,9 +135,6 @@ public class ShowMap extends FragmentActivity
             String info = HotelName + "\n" + address + "\n" + city + " "+ zip +
                     "\n" + website;
 
-            //TextView layout1 = (TextView) findViewById(R.id.header);
-            //layout1.setText(info);
-            // build latitude + longitude
             String[] latlong =  myHotel[5].split(",");
             double latitude = Double.parseDouble(latlong[0]);
             double longitude = Double.parseDouble(latlong[1]);
@@ -154,13 +149,11 @@ public class ShowMap extends FragmentActivity
     public void onMapReady(GoogleMap googleMap) {
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         LatLng location = buildInfo(info);
+        googleMap.getUiSettings().setMapToolbarEnabled(true);
         CameraUpdate update = CameraUpdateFactory.newLatLngZoom(location,17);
         googleMap.addMarker(new MarkerOptions().position(location).title(HotelName));
         googleMap.animateCamera(update);
-        googleMap.setTrafficEnabled(true);
-        googleMap.setIndoorEnabled(true);
-        googleMap.setBuildingsEnabled(true);
-        googleMap.getUiSettings().setZoomControlsEnabled(true);
+
 
     }
 }
